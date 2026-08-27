@@ -1,1 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myles Alcindor | Personal Portfolio</title>
+    <style>
+        :root {
+            --columbia-blue: #C4D8E2;
+            --columbia-blue-dark: #9BBECF;
+            --columbia-blue-light: #EBF2F6;
+            --navy-primary: #1C2D42;
+            --text-main: #2B3A4A;
+            --text-muted: #5C6E82;
+            --bg-body: #F4F7F9;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(28, 45, 66, 0.05);
+            --radius: 8px;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Streamlined Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--columbia-blue);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .brand-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--columbia-blue-dark);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero / Header Section */
+        .hero {
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            color: var(--navy-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            color: var(--navy-primary);
+            text-decoration: none;
+            font-weight: 500;
+            background-color: var(--columbia-blue-light);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--columbia-blue);
+        }
+
+        .contact-item:hover {
+            background-color: var(--columbia-blue);
+        }
+
+        /* Section Layout */
+        section {
+            padding: 3rem 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--navy-primary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--columbia-blue);
+            padding-bottom: 0.4rem;
+            display: inline-block;
+        }
+
+        /* Tile Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(28, 45, 66, 0.08);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy-primary);
+        }
+
+        .card-subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-date {
+            font-size: 0.85rem;
+            background-color: var(--columbia-blue-light);
+            color: var(--navy-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .location {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Content List Styles */
+        ul.desc-list {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        ul.desc-list li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .tag {
+            font-size: 0.85rem;
+            background: var(--columbia-blue-light);
+            border: 1px solid var(--columbia-blue);
+            color: var(--navy-primary);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* Additional Information Styles */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card h4 {
+            font-size: 1rem;
+            color: var(--navy-primary);
+            margin-bottom: 0.5rem;
+            border-left: 3px solid var(--columbia-blue-dark);
+            padding-left: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .contact-bar {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand-name">MYLES ALCINDOR</a>
+            <nav>
+                <ul>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#additional">Additional Info</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="hero">
+            <h1>Myles Alcindor</h1>
+            <p class="subtitle">MS Candidate in Accounting & Financial Analysis at Columbia Business School</p>
+            <div class="contact-bar">
+                <a href="tel:954-702-5313" class="contact-item">954-702-5313</a>
+                <a href="mailto:MAlcindor28@gsb.columbia.edu" class="contact-item">MAlcindor28@gsb.columbia.edu</a>
+                <a href="https://linkedin.com/in/myles-alcindor" target="_blank" class="contact-item">linkedin.com/in/myles-alcindor</a>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="grid">
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Columbia Business School</div>
+                            <div class="card-subtitle">MS, Accounting and Fundamental Analysis</div>
+                        </div>
+                        <span class="badge-date">2026 – 2028</span>
+                    </div>
+                    <span class="location">New York, NY | Feb 2028 | GRE: 322</span>
+                    <p style="font-size: 0.95rem; margin-bottom: 0.75rem;">
+                        A highly selective, industry-oriented program combining PhD and MBA courses to provide advanced quantitative expertise in financial statement analysis and equity asset valuation.
+                    </p>
+                    <div class="card-subtitle" style="font-size: 0.9rem; margin-top: 1rem;">Expected Coursework</div>
+                    <div class="tag-container">
+                        <span class="tag">Capital Markets & Investments (MBA)</span>
+                        <span class="tag">Computing for Investment Analysis (MS)</span>
+                        <span class="tag">Fundamental Analysis (MS)</span>
+                        <span class="tag">Valuation & Financial Statement Analysis (MS)</span>
+                        <span class="tag">Econometrics & Statistical Inference (PhD)</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Assumption University</div>
+                            <div class="card-subtitle">BA, Finance and Economics</div>
+                        </div>
+                        <span class="badge-date">2023 – 2026</span>
+                    </div>
+                    <span class="location">Worcester, MA | May 2026 | GPA: 3.81</span>
+                    <ul class="desc-list">
+                        <li><strong>Minor:</strong> Mathematics</li>
+                        <li><strong>Honors:</strong> Magna Cum Laude, Omicron Delta Epsilon (Economics), Kappa Mu Epsilon (Mathematics)</li>
+                        <li><strong>Awards:</strong> Economics Major Award, NE10 Presidents' Award</li>
+                        <li><strong>Activities:</strong> Full Scholarship NCAA Basketball (Guard), Greyhound Investment Fund Member</li>
+                        <li><strong>Peer Tutoring:</strong> CRLA Advanced Level II Certified in Finance & Economics (225+ hours, led review groups of 12+ tutees)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="grid">
+
+                <div class="card" style="grid-column: 1 / -1;">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Royal Bank of Canada Capital Markets</div>
+                            <div class="card-subtitle">Global Markets Summer Analyst</div>
+                        </div>
+                        <span class="badge-date">2025</span>
+                    </div>
+                    <span class="location">London, UK</span>
+                    <ul class="desc-list">
+                        <li>Supported coverage of top institutional clients within Senior Relationship Management across asset classes.</li>
+                        <li>Designed and delivered an interactive cross-asset allocation simulation for 90 analysts across 17 institutional investors, translating macro, valuation, and risk signals into portfolio decision-making exercises.</li>
+                        <li>Produced and presented executive-level client intelligence briefings for senior Global Markets leadership.</li>
+                        <li>Conducted research on potential private M&A scenarios to identify opportunities for structured equity derivative solutions.</li>
+                        <li>Built automated data pipelines and dashboards covering 20+ products, enabling regional KPI tracking across Global Markets.</li>
+                        <li>Automated 5 workflows using Excel VBA, reducing processing time from 6-9 hours to under 10 seconds.</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="grid-column: 1 / -1;">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Royal Bank of Canada Capital Markets</div>
+                            <div class="card-subtitle">Global Markets Summer Analyst</div>
+                        </div>
+                        <span class="badge-date">2024</span>
+                    </div>
+                    <span class="location">London, UK</span>
+                    <ul class="desc-list">
+                        <li>Supported cross-asset client coverage across equities, rates, credit, FX, futures, and structured solutions.</li>
+                        <li>Developed and presented a long equity trade idea, leveraging internal analyst research with valuation and macro drivers.</li>
+                        <li>Researched structural shift in asset managers outsourcing trading to custodians, analyzing implications for liquidity, execution, and sell-side revenue; presented findings to capital markets leadership.</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="grid-column: 1 / -1;">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">SBM London Accountants</div>
+                            <div class="card-subtitle">Assistant Accountant</div>
+                        </div>
+                        <span class="badge-date">2023</span>
+                    </div>
+                    <span class="location">London, UK</span>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; font-style: italic;">
+                        Boutique firm providing tailored comprehensive strategy and management to bespoke clientele
+                    </p>
+                    <ul class="desc-list">
+                        <li>Maintained financial records using QuickBooks and Xero, ensuring accurate classification and reconciliation of transactions.</li>
+                        <li>Assisted in the preparation of monthly financial statements, expense tracking, and cash flow summaries.</li>
+                        <li>Performed reconciliations and variance analysis to identify discrepancies and improve reporting accuracy.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ADDITIONAL INFORMATION SECTION -->
+        <section id="additional">
+            <h2 class="section-title">Additional Information</h2>
+            <div class="card">
+                <div class="info-grid">
+                    
+                    <div class="info-card">
+                        <h4>Technical Skills</h4>
+                        <p style="font-size: 0.95rem;">VBA (Excel), Python (Intermediate), Financial Modeling (DCF, Comparable Company Analysis, Valuation)</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Certifications</h4>
+                        <p style="font-size: 0.95rem;">Bloomberg Market Concepts (BMC)</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Volunteer Work</h4>
+                        <p style="font-size: 0.95rem;">Urban Synergy (Youth Mentorship), Hummingbird Senior Social Club (NHS-Backed Wellness Programming)</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Work Authorization</h4>
+                        <p style="font-size: 0.95rem;">STEM program, three-year OPT eligible</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Languages</h4>
+                        <p style="font-size: 0.95rem;">Spanish (Intermediate)</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Interests</h4>
+                        <p style="font-size: 0.95rem;">England & Great Britain Basketball Captain | England & Kent Cricket | Mixed-Media Portraiture | Watch Assembly</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Myles Alcindor. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
