@@ -250,6 +250,20 @@
             margin-top: 4rem;
         }
 
+
+        /* Project Showcase */
+        .project-card { padding: 0; overflow: hidden; }
+        .project-content { padding: 1.75rem; }
+        .project-intro { max-width: 800px; margin-bottom: 1.25rem; font-size: 1rem; }
+        .project-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .project-meta h3 { color: var(--navy-primary); font-size: 1rem; margin-bottom: 0.5rem; }
+        .data-note { margin-top: 1.5rem; padding: 0.85rem 1rem; background: var(--columbia-blue-light); border-left: 4px solid var(--columbia-blue-dark); border-radius: 4px; color: var(--navy-primary); font-size: 0.9rem; }
+        .screenshot-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; padding: 0 1.75rem 1.75rem; }
+        .screenshot-grid figure:first-child { grid-column: 1 / -1; }
+        .screenshot-grid figure { min-width: 0; }
+        .screenshot-grid img { display: block; width: 100%; height: auto; border: 1px solid rgba(28, 45, 66, 0.14); border-radius: 6px; background: #101217; }
+        .screenshot-grid figcaption { margin-top: 0.5rem; color: var(--text-muted); font-size: 0.85rem; }
+
         @media (max-width: 600px) {
             .nav-container {
                 flex-direction: column;
@@ -262,6 +276,8 @@
                 flex-direction: column;
                 gap: 0.5rem;
             }
+            .project-meta, .screenshot-grid { grid-template-columns: 1fr; }
+            .screenshot-grid figure:first-child { grid-column: auto; }
         }
     </style>
 </head>
@@ -274,6 +290,7 @@
                 <ul>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#additional">Additional Info</a></li>
                 </ul>
             </nav>
@@ -400,6 +417,56 @@
                 </div>
 
             </div>
+        </section>
+
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <article class="card project-card">
+                <div class="project-content">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Personal Finance Analytics Dashboard</h3>
+                            <p class="card-subtitle">Self-directed data and financial analytics project</p>
+                        </div>
+                        <span class="badge-date">In Progress</span>
+                    </div>
+                    <p class="project-intro">A personal finance application that consolidates transaction data, maps spending to a structured monthly budget, and turns raw activity into clear, decision-useful insights. I built the project to strengthen my applied Python, data-engineering, and financial-analysis skills while solving a practical budgeting problem.</p>
+                    <div class="project-meta">
+                        <div>
+                            <h3>Key Features</h3>
+                            <ul class="desc-list">
+                                <li>Monthly budget, spending, remaining balance, and utilization metrics</li>
+                                <li>Category-level allocation and variance analysis</li>
+                                <li>Filterable transaction history by account and category</li>
+                                <li>Account-level structure designed for future Plaid integration</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Tech Stack</h3>
+                            <div class="tag-container">
+                                <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">SQLite</span><span class="tag">Plotly</span><span class="tag">Plaid Sandbox</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="data-note"><strong>Data note:</strong> All financial figures, transactions, merchants, and account information shown below are synthetic/test data. No personal financial data or credentials are displayed.</p>
+                </div>
+                <div class="screenshot-grid">
+                    <figure>
+                        <img src="assets/finance-dashboard-overview.png" alt="Personal finance dashboard overview showing monthly budget metrics, a spending breakdown, and category budget progress" loading="lazy">
+                        <figcaption>Overview — headline budget metrics, spending mix, and category-level utilization.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/finance-dashboard-budget.png" alt="Budget page showing allocations, spending, remaining balances, and percentage used by expense" loading="lazy">
+                        <figcaption>Budget — detailed allocations and variance tracking by expense.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/finance-dashboard-transactions.png" alt="Transactions page showing account and category filters with a categorized transaction table" loading="lazy">
+                        <figcaption>Transactions — filterable account activity and categorization.</figcaption>
+                    </figure>
+                </div>
+            </article>
         </section>
 
         <!-- ADDITIONAL INFORMATION SECTION -->
